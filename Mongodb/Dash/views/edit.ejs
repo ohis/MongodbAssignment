@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Edit dog <%=dog.name%></h1>
+    <form class="" action="/dogs/<%=dog.id%>" method="post">
+      <label for="">Name:</label>
+      <input type="text" name="name" value="<%=dog.name%>">
+      <br>
+      <br>
+      <label for="">Color:</label>
+      <input type="text" name="color" value="<%=dog.color%>">
+      <br>
+      <br>
+      <label for="">Weight:</label>
+      <input type="text" name="weight" value="<%=dog.weight%>">
+      <br>
+      <br>
+      <input type="submit" name="" value="Update">
+
+    </form>
+
+  </body>
+</html>

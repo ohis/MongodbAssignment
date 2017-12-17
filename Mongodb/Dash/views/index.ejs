@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Heyyy</h1>
+    <h1> <a href="/new">Create a new dog</a></h1>
+    <h1>All the dogs</h1>
+     <table>
+       <tr>
+         <thead>
+           <td>Name</td>
+           <td>Color</td>
+           <td>Weight</td>
+           <td>Actions</td>
+         </thead>
+       </tr>
+       <%for(var i = 0; i < dogs.length; i++){%>
+       <tr>
+         <tbody>
+           <td><%=dogs[i].name%></td>
+           <td><%=dogs[i].color%></td>
+           <td><%=dogs[i].weight%></td>
+           <td><a href="/dogs/edit/<%=dogs[i]._id %>">Edit</a>
+           <form class="" action="/dogs/<%=dogs[i]._id%>" method="get">
+             <input type="submit" name="" value="Show">
+           </form>
+           <form class="" action="/dogs/destroy/<%=dogs[i]._id%>" method="post">
+             <input type="submit" name="" value="Delete">
+           </form>
+         </td>
+         </tbody>
+       </tr>
+       <%}%>
+     </table>
+  </body>
+</html>

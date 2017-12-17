@@ -1,0 +1,37 @@
+For every mongo project you create
+1)To start db ; go to terminal and do this;
+  cd C:
+  cd 'Program Files'
+  cd MongoDB/
+  cd Server
+  cd 3.4
+  cd bin
+  ./mongod
+2) 
+make dis commands after you've created ayour project with a views, static folder and package.json,
+ server.js file
+
+yourcommandline> npm init -y
+yourcommandline> npm install express --save
+yourcommandline> npm install ejs --save
+yourcommandline> npm install body-parser --save
+yourcommandline> npm install mongoose --save
+
+3) In server.js
+ var express = require('express');
+// Create an Express App
+var app = express();
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/basic_mongoose');
+// Require body-parser (to receive post data from clients)
+var bodyParser = require('body-parser');
+// Integrate body-parser with our App
+app.use(bodyParser.urlencoded({ extended: true }));
+// Require path
+var path = require('path');
+// Setting our Static Folder Directory
+app.use(express.static(path.join(__dirname, './static')));
+// Setting our Views Folder Directory
+app.set('views', path.join(__dirname, './views'));
+// Setting our View Engine set to EJS
+app.set('view engine', 'ejs');

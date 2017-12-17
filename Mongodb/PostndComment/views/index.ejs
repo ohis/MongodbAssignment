@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Am hererrrrr</h1>
+
+    <h1>Posts</h1>
+    <form class="" action="/posts" method="post">
+      <label for="">Text:</label>
+      <br>
+      <br>
+      <textarea name="text" rows="8" cols="40"></textarea>
+      <br>
+      <br>
+      <input type="submit" name="" value="Add Post">
+
+    </form>
+    <br>
+    <br>
+    <%for(var i = 0; i < posts.length;i++){%>
+      <p>Post: <%=posts[i].text%></p>
+      <h1>Comments</h1>
+      <ul>
+        <%for(var j = 0; j < posts[i].comments.length;j++){%>
+          <% var comment = posts[i].comments[j] %>
+          <%= comment %>
+            <ul>
+              <li><%= comment.text %></li>
+            </ul>
+
+        <%}%>
+      </ul>
+
+      <form class="" action="/comments/<%=posts[i]._id%>" method="post">
+        <label for="">Comment:</label>
+        <br>
+        <br>
+        <textarea name="text" rows="8" cols="40"></textarea>
+        <br>
+        <br>
+        <input type="submit" name="" value="Leave a comment">
+
+      </form>
+    <%}%>
+
+
+  </body>
+</html>

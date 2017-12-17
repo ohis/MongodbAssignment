@@ -1,0 +1,62 @@
+<html>
+    <head>
+  <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>make a new user</h1>
+            <form action="/posts" method="post">
+                <div>
+                    <label for="">Name</label>
+                    <input type="text" name="user">
+                </div>
+                <div>
+                    <label for="">Title</label>
+                    <input type="text" name="title">
+                </div>
+                <div>
+                    <label for="">Body</label>
+                    <textarea name="body"></textarea>
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+            <a href="/users">See all the Users</a>
+            <div>
+                <h3>Posts</h3>
+                <% for(var i = 0; i < posts.length; i++){ %>
+                    <div>
+                        <ul>
+                            <li><%= posts[i].user %></li>
+                            <li><%= posts[i].title %></li>
+                            <li><%= posts[i].body %></li>
+                        </ul>
+                        <h5>Comments</h5>
+                        <ul>
+                            <% for(var j = 0; j < posts[i].comments.length; j++){ %>
+                                <% var comment = posts[i].comments[j] %>
+                                <%= comment %>
+                                <ul>
+                                    <li><%= comment.user %></li>
+                                    <li><%= comment.comment %></li>
+                                </ul>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Leave a comment</h4>
+                        <form action="/comments/<%= posts[i]._id %>" method="post">
+                            <div>
+                                <label for="">Name</label>
+                                <input type="text" name="user">
+                            </div>
+                            <div>
+                                <textarea name="comment" id="" cols="30" rows="5"></textarea>
+                            </div>
+                            <input type="submit" value="Leave Comment">
+                        </form>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </body>
+</html>
